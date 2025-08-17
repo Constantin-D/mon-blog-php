@@ -1,0 +1,31 @@
+# Fichiers de configuration sensibles
+includes/db.php
+
+# Fichiers temporaires et cache
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Dossiers de développement
+node_modules/
+vendor/
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*~
+
+# Fichiers d'environnement
+.env
+.env.local
+
+# Dossiers d'uploads (si vous en avez)
+uploads/
+images/uploads/
+
+# Fichiers IDE
+.vscode/
+.idea/
+*.swp
+*.swo
