@@ -18,7 +18,7 @@ $rootPath = rtrim($rootPath, '/'); // enlever le / final si il existe
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Feuilles de style dans l'ordre logique -->
     <link rel="stylesheet" href="<?php echo $rootPath; ?>/css/reset.css">
@@ -31,8 +31,21 @@ $rootPath = rtrim($rootPath, '/'); // enlever le / final si il existe
         <div class="container">
             <h1>Mon Blog</h1>
             <nav>
-                <ul>
+                <!-- Checkbox cachée pour contrôler le Menu -->
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+                <!-- Label qui agit comme btn Burger avec pseudo-éléments -->
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <span></span>
+                </label>
+
+                <!-- Overlay invisible pour fermer Menu -->
+                <label for="nav-toggle" class="nav-overlay"></label>
+
+                <ul class="nav-menu">
                     <li><a href="<?php echo $rootPath; ?>/index.php" class="<?php echo ($pageTitle == 'Accueil - Mon Blog') ? 'active' : ''; ?>">Accueil</a></li>
+                    <li><a href="<?php echo $rootPath; ?>/about.php" class="<?php echo ($pageTitle == 'À propos - Mon Blog') ? 'active' : ''; ?>">À propos</a></li>
+                    <li><a href="<?php echo $rootPath; ?>/contact.php" class="<?php echo ($pageTitle == 'Contact - Mon Blog') ? 'active' : ''; ?>">Contact</a></li>
                     <?php if (!is_logged_in()): ?>
                         <li><a href="<?php echo $rootPath; ?>/register.php" class="<?php echo ($pageTitle == 'Inscription') ? 'active' : ''; ?>">Inscription</a></li>
                         <li><a href="<?php echo $rootPath; ?>/login.php" class="<?php echo ($pageTitle == 'Connexion') ? 'active' : ''; ?>">Connexion</a></li>

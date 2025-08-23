@@ -80,7 +80,7 @@ nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Style pour l'onglet actif dans la navigation */
+/* Style pour l'onglet actif dans Navigation */
 nav ul li a.active {
     background-color: var(--primary-color);
     color: white;
@@ -89,6 +89,95 @@ nav ul li a.active {
 
 nav ul li a.active:hover {
     background-color: var(--primary-color-dark);
+}
+
+/* Burger Menu avec pseudo-éléments */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    position: relative;
+    height: 20px;
+    width: 26px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: var(--text-light);
+    height: 2px;
+    width: 26px;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+}
+
+.nav-toggle-label span {
+    top: 9px;
+}
+
+.nav-toggle-label span::before {
+    top: -8px;
+}
+
+.nav-toggle-label span::after {
+    top: 8px;
+}
+
+/* Animation Burger → Croix */
+.nav-toggle:checked+.nav-toggle-label span {
+    background: transparent;
+}
+
+.nav-toggle:checked+.nav-toggle-label span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle:checked+.nav-toggle-label span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Overlay invisible pour fermer le Menu */
+.nav-overlay {
+    display: none;
+    /* Caché par défaut sur desktop */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Afficher l'overlay quand le menu est ouvert */
+.nav-toggle:checked~.nav-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Fermer le menu au scroll (optionnel) */
+@media (max-width: 768px) {
+    .nav-toggle:checked {
+        /* Le menu se fermera automatiquement si on scroll */
+        position: sticky;
+    }
 }
 
 /* Main content */
@@ -302,8 +391,6 @@ button:hover,
 .article-actions {
     margin-top: 2rem;
 }
-
-
 
 /* Messages */
 .message {
