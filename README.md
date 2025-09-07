@@ -93,25 +93,32 @@ php -S localhost:8000
 ```
 mon_blog_php/
 ├── css/
-│   ├── reset.css          # Reset CSS
-│   ├── style.css          # Styles principaux
-│   └── responsive.css     # Styles responsive
-├── images/                # Assets images
+│   ├── reset.css              # Reset CSS
+│   ├── style.css              # Styles principaux + nouvelles fonctionnalités
+│   └── responsive.css         # Styles responsive + menu burger
+├── images/                    # Assets images
 ├── includes/
-│   ├── db.example.php     # Template de configuration DB
-│   ├── db.php            # Configuration base de données
-│   ├── functions.php     # Fonctions utilitaires
-│   ├── header.php        # En-tête commun
-│   └── footer.php        # Pied de page commun
-├── index.php             # Page d'accueil
-├── login.php             # Connexion
-├── register.php          # Inscription
-├── dashboard.php         # Tableau de bord
-├── create_post.php       # Création d'articles
-├── article.php           # Affichage d'un article
-├── about.php             # À propos
-├── contact.php           # Contact
-├── privacy.php           # Politique de confidentialité
+│   ├── db.example.php         # Template de configuration DB
+│   ├── db.php                # Configuration base de données
+│   ├── functions.php         # Fonctions utilitaires
+│   ├── header.php            # En-tête commun avec navigation
+│   ├── footer.php            # Pied de page commun
+│   └── markdown.php          # Parser Markdown complet
+├── index.php                 # Page d'accueil
+├── login.php                 # Connexion (avec toggle mot de passe)
+├── register.php              # Inscription (avec toggle mot de passe)
+├── dashboard.php             # Tableau de bord utilisateur
+├── create_post.php           # Création d'articles + support Markdown
+├── article.php               # Affichage d'un article
+├── about.php                 # À propos
+├── contact.php               # Contact
+├── privacy.php               # Politique de confidentialité
+├── unsubscribe.php           # Désinscription sécurisée
+├── logout.php                # Déconnexion
+├── post.php                  # Gestion des posts
+├── check_php_version.php     # Diagnostic version PHP
+├── check_db_structure.php    # Diagnostic structure base de données
+├── add_created_at_column.php # Migration ajout colonne created_at
 └── README.md
 ```
 
@@ -132,26 +139,54 @@ mon_blog_php/
 
 ## 🔧 Fonctionnalités techniques
 
-### Menu responsive
+### 📝 Système Markdown avancé
+
+- Parser Markdown complet (titres, listes, liens, code, citations)
+- Aide interactive CSS-only avec toggle
+- Support blocs de code avec coloration syntaxique
+- Interface utilisateur intuitive
+
+### 👁️ Toggle mot de passe CSS-only
+
+- Affichage/masquage des mots de passe sur login/register
+- Animation avec pseudo-éléments et icônes
+- Cohérent avec l'approche sans JavaScript du projet
+
+### 🗑️ Système de désinscription sécurisé
+
+- Page dédiée avec confirmation par texte exact
+- Suppression en cascade (compte + tous les articles)
+- Interface d'avertissement claire avec zone de danger
+- Accessible depuis le tableau de bord
+
+### 📱 Menu responsive
 
 - Menu burger CSS-only (sans JavaScript)
 - Animations avec pseudo-éléments
 - Overlay pour fermeture au clic extérieur
 - Breakpoints optimisés : 768px, 480px, 320px
 
-### Sécurité
+### 🔐 Sécurité
 
 - Requêtes préparées PDO
 - Hashage des mots de passe avec `password_hash()`
 - Validation et échappement des données
 - Protection contre les injections SQL
+- Confirmation obligatoire pour actions critiques
 
-### Design
+### 🎨 Design
 
 - Variables CSS pour une maintenance facile
 - Architecture CSS modulaire
 - Design mobile-first
 - Animations fluides
+
+### 🛠️ Outils de diagnostic
+
+- `check_php_version.php` : Diagnostic version PHP et extensions
+- `check_db_structure.php` : Analyse structure des tables MySQL
+- `add_created_at_column.php` : Migration pour ajouter colonne created_at
+- Gestion des erreurs de colonnes manquantes
 
 ## 🤝 Contribution
 
