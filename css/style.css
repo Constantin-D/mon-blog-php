@@ -342,6 +342,254 @@ button:hover,
     margin-bottom: 1rem;
 }
 
+/* Styles pour l'aide Markdown */
+.markdown-toggle-container {
+    margin: 1rem 0;
+}
+
+.markdown-help-checkbox {
+    display: none;
+    /* Cacher la vraie checkbox */
+}
+
+.markdown-help-label {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.7rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+    user-select: none;
+}
+
+.markdown-help-label:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-1px);
+}
+
+.markdown-help {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    margin-top: 0.5rem;
+}
+
+/* Quand la checkbox est cochée, montrer l'aide */
+.markdown-help-checkbox:checked+.markdown-help-label+.markdown-help {
+    max-height: 600px;
+    opacity: 1;
+    padding: 1.5rem;
+}
+
+.markdown-help h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-examples {
+    margin-bottom: 1.5rem;
+}
+
+.markdown-example {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.markdown-example:last-child {
+    border-bottom: none;
+}
+
+.markdown-example code {
+    background: #e9ecef;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    min-width: 180px;
+    display: inline-block;
+}
+
+.markdown-template {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.markdown-template h4 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.markdown-template pre {
+    margin: 0;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #e9ecef;
+    overflow-x: auto;
+}
+
+.markdown-template code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #495057;
+}
+
+/* Checkbox pour Markdown */
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+label input[type="checkbox"] {
+    display: inline;
+}
+
+/* Styles pour le contenu Markdown rendu */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.article-content h1 {
+    font-size: 2rem;
+}
+
+.article-content h2 {
+    font-size: 1.7rem;
+}
+
+.article-content h3 {
+    font-size: 1.4rem;
+}
+
+.article-content h4 {
+    font-size: 1.2rem;
+}
+
+/* Code blocks */
+.article-content pre {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.article-content pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+/* Code inline */
+.article-content code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #e74c3c;
+    border: 1px solid #dee2e6;
+}
+
+/* Images Markdown */
+.article-content .markdown-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1.5rem 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Citations */
+.article-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    background: #f8f9fa;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    font-style: italic;
+    color: #6c757d;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.article-content blockquote p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Lignes horizontales */
+.article-content hr {
+    border: none;
+    border-top: 2px solid #e9ecef;
+    margin: 2rem 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Listes améliorées */
+.article-content ul,
+.article-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.article-content ol {
+    counter-reset: item;
+}
+
+.article-content ol li {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.article-content ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
 /* Styles pour l'affichage d'un article complet */
 .article-container {
     max-width: 800px;
@@ -504,7 +752,6 @@ button:hover,
     font-size: 0.95rem !important;
 }
 
-/* Amélioration du copyright */
 .footer-content p:first-child {
     font-size: 0.85rem;
     color: #95a5a6;

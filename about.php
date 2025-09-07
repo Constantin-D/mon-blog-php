@@ -12,7 +12,7 @@ require_once(__DIR__ . '/includes/header.php');
             <h2>Notre Mission</h2>
             <p>
                 Bienvenue sur Mon Blog PHP ! Ce projet a été développé dans le cadre de l'apprentissage
-                du développement web avec PHP et MySQL. Notre objectif est de créer une plateforme simple
+                du développement web avec PHP (Vanilla) et MySQL. L'objectif est de créer une plateforme simple
                 et intuitive pour partager des articles et des réflexions.
             </p>
 

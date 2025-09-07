@@ -20,6 +20,13 @@ try {
 require_once(__DIR__ . '/includes/header.php');
 ?>
 
+<?php if (isset($_GET['account_deleted']) && $_GET['account_deleted'] == '1'): ?>
+    <div class="message success" style="margin-bottom: 2rem;">
+        <strong>🗑️ Compte supprimé avec succès</strong><br>
+        Votre compte et toutes vos données ont été définitivement supprimés. Merci d'avoir utilisé notre blog !
+    </div>
+<?php endif; ?>
+
 <section class="hero">
     <div class="hero-content">
         <h1>Bienvenue sur Mon Blog</h1>

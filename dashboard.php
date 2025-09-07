@@ -3,14 +3,14 @@ session_start();
 require_once(__DIR__ . '/includes/db.php');
 require_once(__DIR__ . '/includes/functions.php');
 
-// Vérifier si l'utilisateur est connecté
+// Vérifier si l'User est connecté
 if (!is_logged_in()) {
     redirect('login.php');
 }
 
 $pageTitle = "Tableau de bord";
 
-// Récupérer les articles de l'utilisateur connecté
+// Récupérer les articles de l'User connecté
 $stmt = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC");
 $stmt->execute([':user_id' => $_SESSION['user_id']]);
 $userPosts = $stmt->fetchAll();
@@ -54,5 +54,14 @@ require_once(__DIR__ . '/includes/header.php');
         <p><a href="create_post.php" class="btn">Créer votre premier article</a></p>
     </div>
 <?php endif; ?>
+
+<!-- Section paramètres du compte -->
+<div class="danger-zone" style="margin-top: 3rem;">
+    <h3>⚙️ Paramètres du compte</h3>
+    <p>Gérez les options avancées de votre compte.</p>
+    <a href="unsubscribe.php" class="btn btn-danger">
+        🗑️ Supprimer mon compte
+    </a>
+</div>
 
 <?php require_once(__DIR__ . '/includes/footer.php'); ?>

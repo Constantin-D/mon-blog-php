@@ -12,7 +12,7 @@ if (is_logged_in()) {
     redirect('dashboard.php');
 }
 
-// Vérification si le formulaire a été soumis
+// Vérif si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
@@ -85,7 +85,13 @@ require_once(__DIR__ . '/includes/header.php');
 
     <div class="form-group">
         <label for="password">Mot de passe :</label>
-        <input type="password" name="password" id="password" required>
+        <div class="password-container">
+            <input type="password" name="password" id="password" required>
+            <div class="password-toggle">
+                <input type="checkbox" id="show-password" class="password-checkbox">
+                <label for="show-password" class="password-toggle-label">👁️</label>
+            </div>
+        </div>
         <small>Au moins 6 caractères</small>
     </div>
 
